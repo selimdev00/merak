@@ -1,10 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue + TS</title>
+
+    <title>Disjoint — a Union-Find visualizer</title>
+    <meta
+      name="description"
+      content="An interactive, animated Union-Find (disjoint-set) visualizer. Watch sets merge, paths compress, and trees flatten toward near-constant lookups."
+    />
+    <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#26221d" media="(prefers-color-scheme: dark)" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Disjoint — a Union-Find visualizer" />
+    <meta
+      property="og:description"
+      content="Watch disjoint sets merge, paths compress, and trees flatten. An interactive teaching tool for the Union-Find data structure."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script>
+      // Apply theme before paint to avoid a flash.
+      (function () {
+        try {
+          var saved = localStorage.getItem('disjoint-theme')
+          var sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          document.documentElement.setAttribute('data-theme', saved || sys)
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background tile: warm binder color, soft rounded square -->
+  <rect width="64" height="64" rx="12" fill="#F3EFE6"/>
+  <rect width="64" height="64" rx="12" fill="none" stroke="#3A352D" stroke-width="1" opacity="0.1"/>
+
+  <!-- ROOT chip: lapis blue, centered near top -->
+  <!-- Accent-teal ring offset ~3px outside the chip (chip r=8, ring r=11) -->
+  <circle cx="32" cy="16" r="11" stroke="#2B6E7A" stroke-width="2" fill="none"/>
+  <circle cx="32" cy="16" r="8" fill="#6E86C8"/>
+
+  <!-- Vein: lapis child (left) → root. Slightly curved via quadratic bezier -->
+  <!-- Child left: jade chip at ~(14, 46) -->
+  <path d="M16 43 Q20 30 29 19" stroke="#3A5A8A" stroke-width="2" stroke-linecap="round"/>
+  <!-- Child center: ochre chip at ~(32, 50) -->
+  <path d="M32 47 Q32 34 32 25" stroke="#9A7020" stroke-width="2" stroke-linecap="round"/>
+  <!-- Child right: (we'll do 2 children, not 3, for clarity at 32px) -->
+
+  <!-- Jade child chip (bottom-left) -->
+  <circle cx="16" cy="47" r="7" fill="#4FB08A"/>
+
+  <!-- Ochre child chip (bottom-right-ish, slightly off center) -->
+  <circle cx="32" cy="50" r="7" fill="#D6A24E"/>
+
+  <!-- Small third child: lapis-family, bottom-right -->
+  <path d="M48 45 Q42 32 35 20" stroke="#3A5A8A" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="48" cy="47" r="6" fill="#6E86C8" opacity="0.75"/>
+</svg>

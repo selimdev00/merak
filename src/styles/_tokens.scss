@@ -1,0 +1,159 @@
+// Design tokens — "poured terrazzo / mineral-chip specimen".
+// Light is canonical identity; dark is a polished night variant.
+// Laws: OKLCH only, never #fff/#000, ease-out motion, animate transform/opacity only.
+
+:root {
+  // ----- Binder (warm limestone) -----
+  --c-bg:        oklch(0.968 0.011 80);
+  --c-bg-sunk:   oklch(0.948 0.013 78);
+  --c-surface:   oklch(0.988 0.008 84);
+  --c-surface-2: oklch(0.978 0.009 82);
+
+  // ----- Ink (warm charcoal) -----
+  --c-ink:        oklch(0.255 0.020 76);
+  --c-ink-strong: oklch(0.205 0.022 74);
+  --c-muted:      oklch(0.505 0.017 76);
+  --c-faint:      oklch(0.640 0.014 78);
+
+  // ----- Structure -----
+  --c-hairline:   oklch(0.882 0.012 78);
+  --c-hairline-2: oklch(0.840 0.013 78);
+
+  // ----- Signature accent: deep ink-teal -----
+  --c-accent:       oklch(0.480 0.105 215);
+  --c-accent-press: oklch(0.420 0.110 216);
+  --c-accent-tint:  oklch(0.940 0.030 210);
+  --c-on-accent:    oklch(0.985 0.006 210);
+
+  // ----- Status -----
+  --c-pos:  oklch(0.640 0.120 150);
+  --c-warn: oklch(0.700 0.130 70);
+  --c-neg:  oklch(0.620 0.150 28);
+  --c-pos-tint:  oklch(0.945 0.040 150);
+  --c-warn-tint: oklch(0.955 0.045 80);
+  --c-neg-tint:  oklch(0.950 0.040 28);
+
+  // ----- Component chips: fill + vein (L-0.20) -----
+  --chip-1:  oklch(0.700 0.135 250); --chip-1-vein:  oklch(0.500 0.120 250);
+  --chip-2:  oklch(0.720 0.130 165); --chip-2-vein:  oklch(0.520 0.115 165);
+  --chip-3:  oklch(0.760 0.135 75);  --chip-3-vein:  oklch(0.560 0.120 75);
+  --chip-4:  oklch(0.700 0.140 35);  --chip-4-vein:  oklch(0.500 0.125 35);
+  --chip-5:  oklch(0.665 0.130 300); --chip-5-vein:  oklch(0.470 0.118 300);
+  --chip-6:  oklch(0.740 0.120 130); --chip-6-vein:  oklch(0.540 0.110 130);
+  --chip-7:  oklch(0.690 0.140 5);   --chip-7-vein:  oklch(0.490 0.125 5);
+  --chip-8:  oklch(0.720 0.120 200); --chip-8-vein:  oklch(0.520 0.110 200);
+  --chip-9:  oklch(0.665 0.130 278); --chip-9-vein:  oklch(0.470 0.118 278);
+  --chip-10: oklch(0.780 0.140 92);  --chip-10-vein: oklch(0.580 0.125 92);
+  --chip-singleton:      oklch(0.930 0.010 80);
+  --chip-singleton-vein: oklch(0.820 0.012 78);
+
+  // ----- Typography -----
+  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-text:    'Inter Variable', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono Variable', ui-monospace, 'SF Mono', monospace;
+
+  --fs--1: 0.800rem;
+  --fs-0:  1.000rem;
+  --fs-1:  1.250rem;
+  --fs-2:  1.563rem;
+  --fs-3:  1.953rem;
+  --fs-4:  2.441rem;
+  --fs-5:  3.052rem;
+
+  --fw-reg: 400; --fw-med: 500; --fw-semi: 600; --fw-bold: 680;
+  --lh-tight: 1.12; --lh-snug: 1.30; --lh-body: 1.55;
+  --tracking-display: -0.02em;
+  --tracking-label: 0.08em;
+  --measure: 68ch;
+
+  // ----- Spacing (4px grid) -----
+  --space-1: 0.25rem; --space-2: 0.50rem; --space-3: 0.75rem;
+  --space-4: 1.00rem; --space-5: 1.50rem; --space-6: 2.00rem;
+  --space-7: 3.00rem; --space-8: 4.00rem; --space-9: 6.00rem;
+
+  // ----- Radii -----
+  --r-1: 0.25rem; --r-2: 0.5rem; --r-3: 1rem; --r-pill: 999px;
+
+  // ----- Elevation (warm-tinted; no glass) -----
+  --shadow-1: 0 1px 2px oklch(0.26 0.02 76 / 0.06), 0 2px 6px oklch(0.26 0.02 76 / 0.05);
+  --shadow-2: 0 2px 4px oklch(0.26 0.02 76 / 0.07), 0 10px 28px oklch(0.26 0.02 76 / 0.09);
+  --border-hairline: 1px solid var(--c-hairline);
+  --focus-ring: 0 0 0 3px var(--c-accent-tint), 0 0 0 1.5px var(--c-accent);
+
+  // ----- Motion (ease-out only) -----
+  --ease-quart: cubic-bezier(0.25, 1, 0.50, 1);
+  --ease-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo:  cubic-bezier(0.16, 1, 0.30, 1);
+
+  --dur-instant:    90ms;
+  --dur-quick:     180ms;
+  --dur-base:      320ms;
+  --dur-slow:      520ms;
+  --dur-deliberate: 720ms;
+  --stagger-depth:  44ms;
+  --stagger-find:   70ms;
+
+  --anim: var(--dur-base);
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --c-bg:        oklch(0.205 0.012 70);
+  --c-bg-sunk:   oklch(0.178 0.012 70);
+  --c-surface:   oklch(0.250 0.013 72);
+  --c-surface-2: oklch(0.282 0.013 72);
+
+  --c-ink:        oklch(0.922 0.010 82);
+  --c-ink-strong: oklch(0.968 0.008 84);
+  --c-muted:      oklch(0.700 0.013 80);
+  --c-faint:      oklch(0.555 0.013 78);
+
+  --c-hairline:   oklch(0.330 0.012 74);
+  --c-hairline-2: oklch(0.392 0.013 74);
+
+  --c-accent:       oklch(0.760 0.110 210);
+  --c-accent-press: oklch(0.700 0.115 210);
+  --c-accent-tint:  oklch(0.330 0.045 212);
+  --c-on-accent:    oklch(0.190 0.020 220);
+
+  --c-pos-tint:  oklch(0.330 0.050 150);
+  --c-warn-tint: oklch(0.350 0.055 80);
+  --c-neg-tint:  oklch(0.340 0.055 28);
+
+  // chips lifted to glow on basalt
+  --chip-1:  oklch(0.740 0.140 250); --chip-1-vein:  oklch(0.560 0.130 250);
+  --chip-2:  oklch(0.760 0.135 165); --chip-2-vein:  oklch(0.580 0.125 165);
+  --chip-3:  oklch(0.800 0.140 75);  --chip-3-vein:  oklch(0.620 0.130 75);
+  --chip-4:  oklch(0.740 0.145 35);  --chip-4-vein:  oklch(0.560 0.135 35);
+  --chip-5:  oklch(0.705 0.135 300); --chip-5-vein:  oklch(0.530 0.128 300);
+  --chip-6:  oklch(0.780 0.125 130); --chip-6-vein:  oklch(0.600 0.120 130);
+  --chip-7:  oklch(0.730 0.145 5);   --chip-7-vein:  oklch(0.550 0.135 5);
+  --chip-8:  oklch(0.760 0.125 200); --chip-8-vein:  oklch(0.580 0.120 200);
+  --chip-9:  oklch(0.705 0.135 278); --chip-9-vein:  oklch(0.530 0.128 278);
+  --chip-10: oklch(0.820 0.145 92);  --chip-10-vein: oklch(0.640 0.135 92);
+  --chip-singleton:      oklch(0.330 0.012 78);
+  --chip-singleton-vein: oklch(0.420 0.013 78);
+
+  --shadow-1: 0 1px 2px oklch(0.10 0.01 70 / 0.40), 0 2px 6px oklch(0.10 0.01 70 / 0.34);
+  --shadow-2: 0 2px 4px oklch(0.10 0.01 70 / 0.44), 0 10px 28px oklch(0.10 0.01 70 / 0.50);
+
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --anim: 0ms;
+    --stagger-depth: 0ms;
+    --stagger-find: 0ms;
+    --dur-quick: 1ms; --dur-base: 1ms; --dur-slow: 1ms; --dur-deliberate: 1ms;
+  }
+}
+
+// Manual reduced-motion override (toggle adds this attribute on <html>).
+[data-motion='reduced'] {
+  --anim: 0ms;
+  --stagger-depth: 0ms;
+  --stagger-find: 0ms;
+  --dur-quick: 1ms; --dur-base: 1ms; --dur-slow: 1ms; --dur-deliberate: 1ms;
+}
